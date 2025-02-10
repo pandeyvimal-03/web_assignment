@@ -27,6 +27,7 @@ import ShimmerList from './ShimmerList'
 import Loader from './Loader'
 import { useContext } from 'react'
 import { ToastifyContext } from '@/context/Toastify'
+import moment from 'moment'
 
 function List() {
     const [users, setUsers] = useState([])
@@ -155,7 +156,7 @@ function List() {
                                                 <TableRow>
                                                     <TableCell className="font-medium">{ele?.username}</TableCell>
                                                     <TableCell>{ele?.email}</TableCell>
-                                                    <TableCell>{ele?.dob}</TableCell>
+                                                    <TableCell>{moment(ele?.dob).utc().format("D MMM YYYY")}</TableCell>
                                                     <TableCell className="text-right">{ele?.gendername}</TableCell>
                                                     <TableCell className="text-right">{ele?.qualificationname}</TableCell>
                                                 </TableRow>
